@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>SaaS Soporte Técnico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script type="module" src="app.js"></script>
+
+<header class="dashboard-header">
+  <h1>💻 Soporte Técnico Inteligente</h1>
+  <div class="user-info">
+    <span id="userName"></span>
+    <button onclick="logout()">Cerrar sesión</button>
+  </div>
+</header>
+
+<main class="dashboard">
+
+  <section class="card">
+    <h2>🎫 Crear Ticket</h2>
+    <input type="text" id="nombre" placeholder="Tu nombre">
+    <textarea id="problema" placeholder="Describe tu problema"></textarea>
+    <button onclick="crearTicket()">Enviar Ticket</button>
+  </section>
+
+  <section class="card">
+    <h2>📋 Tickets</h2>
+    <ul id="listaTickets"></ul>
+  </section>
+
+  <section class="card">
+    <h2>🤖 Chat de Soporte</h2>
+    <div id="chat" class="chat-box"></div>
+    <input type="text" id="mensaje" placeholder="Escribe tu duda">
+    <button onclick="enviarMensaje()">Enviar</button>
+  </section>
+
+</main>
+
+
+</body>
+</html>

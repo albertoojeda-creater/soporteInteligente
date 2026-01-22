@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Soporte Inteligente</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-card">
+    <img src="logo.png" alt="Soporte Inteligente" class="logo">
+
+    <h2>Soporte Inteligente</h2>
+    <p class="subtitle">Inicia sesión</p>
+
+    <input type="email" id="email" placeholder="Correo electrónico">
+    <input type="password" id="password" placeholder="Contraseña">
+
+    <button onclick="login()">Entrar</button>
+    <p id="error" class="error"></p>
+
+    <div class="auth-footer">
+      ¿No tienes cuenta?
+      <a href="register.html">Regístrate</a>
+    </div>
+  </div>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>

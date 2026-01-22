@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro | Soporte Inteligente</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-card">
+    <img src="logo.png" alt="Soporte Inteligente" class="logo">
+
+    <h2>Crear cuenta</h2>
+    <p class="subtitle">Registro de usuario</p>
+
+    <input type="text" id="name" placeholder="Nombre completo">
+    <input type="email" id="email" placeholder="Correo electrónico">
+    <input type="password" id="password" placeholder="Contraseña">
+
+    <button onclick="register()">Registrarse</button>
+
+    <p id="success" class="success"></p>
+    <p id="error" class="error"></p>
+
+    <div class="auth-footer">
+      ¿Ya tienes cuenta?
+      <a href="login.html">Iniciar sesión</a>
+    </div>
+  </div>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>
