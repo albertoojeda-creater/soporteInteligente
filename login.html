@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Soporte SaaS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+
+  <div class="login-container">
+    <div class="login-card">
+      <h2>Soporte SaaS</h2>
+      <p class="subtitle">Accede a tu panel</p>
+
+      <div class="input-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" placeholder="admin@soporte.com">
+      </div>
+
+      <div class="input-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="••••••••">
+      </div>
+
+      <button onclick="login()">Iniciar sesión</button>
+
+      <p id="error" class="error"></p>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
