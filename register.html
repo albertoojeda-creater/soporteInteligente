@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Login | Soporte Inteligente</title>
+  <title>Registro | Soporte Inteligente</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="auth-body">
@@ -10,18 +10,21 @@
   <div class="auth-card">
     <img src="logo.png" alt="Soporte Inteligente" class="logo">
 
-    <h2>Soporte Inteligente</h2>
-    <p class="subtitle">Inicia sesión</p>
+    <h2>Crear cuenta</h2>
+    <p class="subtitle">Registro de usuario</p>
 
+    <input type="text" id="name" placeholder="Nombre completo">
     <input type="email" id="email" placeholder="Correo electrónico">
     <input type="password" id="password" placeholder="Contraseña">
 
-    <button onclick="login()">Entrar</button>
+    <button onclick="register()">Registrarse</button>
+
+    <p id="success" class="success"></p>
     <p id="error" class="error"></p>
 
     <div class="auth-footer">
-      ¿No tienes cuenta?
-      <a href="register.html">Regístrate</a>
+      ¿Ya tienes cuenta?
+      <a href="login.html">Iniciar sesión</a>
     </div>
   </div>
 
