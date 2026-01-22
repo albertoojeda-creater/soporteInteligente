@@ -1,10 +1,34 @@
+// app.js
+import { auth } from "./firebase.js";
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
 let tickets = [];
 
+// VERIFICAR SESIÓN (Protección de ruta)
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // Usuario logueado
+    document.getElementById("userName").textContent = user.email;
+    // Aquí podrías cargar tickets desde Firestore si quisieras en el futuro
+  } else {
+    // No hay usuario, pa' fuera
+    window.location.href = "login.html";
+  }
+});
+
 // LOGOUT
-function logout() {
-  localStorage.removeItem("usuario");
-  window.location.href = "login.html";
+window.logout = function() {
+  signOut(auth).then(() => {
+    window.location.href = "login.html";
+  }).catch((error) => {
+    console.error("Error al salir", error);
+  });
 }
+
+// ... (El resto de tus funciones crearTicket, mostrarTickets, enviarMensaje quedan igual por ahora)
+// Nota: crearTicket y demás deben estar disponibles globalmente si las llamas con onclick en HTML:
+window.crearTicket = crearTicket;
+window.enviarMensaje = enviarMensaje;
 
 // CREAR TICKET
 function crearTicket() {

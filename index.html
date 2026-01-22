@@ -7,11 +7,7 @@
 </head>
 <body>
 
-<script>
-  if (!localStorage.getItem("usuario")) {
-    window.location.href = "login.html";
-  }
-</script>
+<script type="module" src="app.js"></script>
 
 <header class="dashboard-header">
   <h1>💻 Soporte Técnico Inteligente</h1>
@@ -44,12 +40,6 @@
 
 </main>
 
-<script src="app.js"></script>
-<script>
-  const usuario = JSON.parse(localStorage.getItem("usuario"));
-  document.getElementById("userName").textContent =
-    usuario.name || usuario.email;
-</script>
 
 </body>
 </html>
