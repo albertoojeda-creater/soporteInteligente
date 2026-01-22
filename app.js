@@ -8,23 +8,26 @@ function logout() {
 
 // CREAR TICKET
 function crearTicket() {
-  const nombre = document.getElementById("nombre").value;
-  const problema = document.getElementById("problema").value;
+  const nombre = document.getElementById("nombre");
+  const problema = document.getElementById("problema");
 
-  if (!nombre || !problema) {
+  if (!nombre.value || !problema.value) {
     alert("Completa todos los campos");
     return;
   }
 
   const ticket = {
     id: tickets.length + 1,
-    nombre,
-    problema,
+    nombre: nombre.value,
+    problema: problema.value,
     estado: "Abierto"
   };
 
   tickets.push(ticket);
   mostrarTickets();
+
+  nombre.value = "";
+  problema.value = "";
 }
 
 // MOSTRAR TICKETS
@@ -34,17 +37,22 @@ function mostrarTickets() {
 
   tickets.forEach(t => {
     lista.innerHTML += `
-      <li>🎫 #${t.id} - ${t.problema} 
-      <strong>(${t.estado})</strong></li>
+      <li>
+        🎫 <strong>#${t.id}</strong> - ${t.problema}
+        <span class="estado">${t.estado}</span>
+      </li>
     `;
   });
 }
 
-// CHAT INTELIGENTE
+// CHAT
 function enviarMensaje() {
-  const mensaje = document.getElementById("mensaje").value.toLowerCase();
+  const input = document.getElementById("mensaje");
   const chat = document.getElementById("chat");
 
+  if (!input.value) return;
+
+  const mensaje = input.value.toLowerCase();
   chat.innerHTML += `<p><strong>Tú:</strong> ${mensaje}</p>`;
 
   let respuesta = "Un técnico revisará tu caso.";
@@ -58,5 +66,6 @@ function enviarMensaje() {
   }
 
   chat.innerHTML += `<p><strong>Soporte:</strong> ${respuesta}</p>`;
-  document.getElementById("mensaje").value = "";
+  chat.scrollTop = chat.scrollHeight;
+  input.value = "";
 }

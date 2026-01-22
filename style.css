@@ -1,82 +1,295 @@
-/* ===== LOGIN ===== */
-.login-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #2563eb, #1e3a8a);
-  height: 100vh;
+/* =========================
+   VARIABLES DE MARCA
+========================= */
+:root {
+  --primary: #1FB6B2;
+  --primary-dark: #148C88;
+  --accent: #7A2323;
+  --bg: #F5F8F9;
+  --card-bg: #FFFFFF;
+  --text: #0B1F2A;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   FONDO CON OLAS GRANDES
+========================= */
+body {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(
+    180deg,
+    #e6f9f8 0%,
+    #fdfefe 45%,
+    #d6f3f1 100%
+  );
+}
+
+/* Olas gigantes tipo lavadora */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  left: -25%;
+  width: 300%;
+  height: 420px;
+  border-radius: 100%;
+  z-index: -1;
+}
+
+/* Ola principal */
+body::before {
+  bottom: -220px;
+  background: rgba(31, 182, 178, 0.35);
+  animation: waveBig 14s ease-in-out infinite;
+}
+
+/* Ola secundaria (más profunda) */
+body::after {
+  bottom: -280px;
+  background: rgba(31, 182, 178, 0.22);
+  animation: waveBig 22s ease-in-out infinite reverse;
+}
+
+/* Animación de ola grande */
+@keyframes waveBig {
+  0% {
+    transform: translateX(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-20%) scaleY(1.2);
+  }
+  100% {
+    transform: translateX(-40%) scaleY(1);
+  }
+}
+
+
+/* =========================
+   LOGIN / REGISTER
+========================= */
+.auth-body {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.login-container {
+.auth-card {
+  background: var(--card-bg);
+  padding: 42px 36px;
   width: 100%;
-  max-width: 380px;
-  padding: 20px;
+  max-width: 390px;
+  border-radius: 18px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.1),
+    inset 0 -6px 0 rgba(31, 182, 178, 0.08);
+  text-align: center;
+  animation: fadeUp 0.8s ease;
 }
 
-.login-card {
-  background: white;
-  padding: 30px 25px;
+/* LOGO */
+.logo {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 18px;
+  border: 4px solid var(--primary);
+  box-shadow:
+    0 0 0 6px rgba(31, 182, 178, 0.15),
+    0 12px 25px rgba(31, 182, 178, 0.4);
+}
+
+/* TITULO */
+.auth-card h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+/* INPUTS */
+.auth-card input {
+  width: 100%;
+  padding: 13px 15px;
+  margin-bottom: 12px;
   border-radius: 12px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  border: 1px solid var(--border);
+  font-size: 15px;
+  transition: all 0.25s ease;
 }
 
-.login-card h2 {
-  text-align: center;
-  margin-bottom: 5px;
-  color: #1e293b;
-}
-
-.subtitle {
-  text-align: center;
-  color: #64748b;
-  font-size: 14px;
-  margin-bottom: 25px;
-}
-
-.input-group {
-  margin-bottom: 15px;
-}
-
-.input-group label {
-  display: block;
-  font-size: 13px;
-  margin-bottom: 5px;
-  color: #334155;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #cbd5e1;
-  font-size: 14px;
-}
-
-.input-group input:focus {
+.auth-card input:focus {
   outline: none;
-  border-color: #2563eb;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(31, 182, 178, 0.25);
 }
 
-.login-card button {
+/* BOTÓN */
+.auth-card button {
   width: 100%;
-  padding: 12px;
-  background: #2563eb;
+  padding: 13px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 6px;
+  transition: all 0.3s ease;
 }
 
-.login-card button:hover {
-  background: #1e40af;
+.auth-card button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(31, 182, 178, 0.45);
 }
 
-.error {
-  color: #dc2626;
-  text-align: center;
+/* LINKS */
+.auth-link {
+  margin-top: 16px;
   font-size: 14px;
+  color: var(--muted);
+}
+
+.auth-link a {
+  color: var(--primary-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+h1 {
+  text-align: center;
+  margin: 28px 0;
+  color: var(--primary-dark);
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+  background: var(--card-bg);
+  max-width: 900px;
+  margin: 22px auto;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+  margin-bottom: 14px;
+  color: var(--primary-dark);
+}
+
+/* =========================
+   INPUTS GENERALES
+========================= */
+input,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  min-height: 90px;
+}
+
+/* =========================
+   TICKETS
+========================= */
+ul {
+  list-style: none;
+}
+
+ul li {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+/* =========================
+   CHAT
+========================= */
+#chat {
+  height: 180px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #f9fefe;
+}
+
+/* =========================
+   ERROR
+========================= */
+.error {
+  color: var(--accent);
   margin-top: 10px;
+  font-size: 14px;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Olas */
+@keyframes wave {
+  0% {
+    transform: translateX(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-25%) scaleY(1.05);
+  }
+  100% {
+    transform: translateX(-50%) scaleY(1);
+  }
 }
