@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>SaaS Soporte Técnico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- PROTECCIÓN DE SESIÓN -->
+<script>
+  if (!localStorage.getItem("usuario")) {
+    window.location.href = "login.html";
+  }
+</script>
+
+<h1>💻 Soporte Técnico Inteligente</h1>
+<button onclick="logout()">Cerrar Sesión</button>
+
+<!-- CREAR TICKET -->
+<div class="card">
+  <h2>Crear Ticket</h2>
+  <input type="text" id="nombre" placeholder="Tu nombre">
+  <textarea id="problema" placeholder="Describe tu problema"></textarea>
+  <button onclick="crearTicket()">Enviar Ticket</button>
+</div>
+
+<!-- TICKETS -->
+<div class="card">
+  <h2>Tickets</h2>
+  <ul id="listaTickets"></ul>
+</div>
+
+<!-- CHAT -->
+<div class="card">
+  <h2>🤖 Chat de Soporte</h2>
+  <div id="chat"></div>
+  <input type="text" id="mensaje" placeholder="Escribe tu duda">
+  <button onclick="enviarMensaje()">Enviar</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
