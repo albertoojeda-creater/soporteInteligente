@@ -95,3 +95,15 @@ Inicia la aplicación de desarrollo:
 
 Bash
 npm run dev
+
+# Próximas Mejoras (Roadmap)
+* Integración de notificaciones automáticas por WhatsApp o SMS para avisar al cliente cuando su pedido cambie a estado "Listo".
+* Generación de reportes gráficos en PDF y exportación a Excel para el cierre de caja mensual.
+* Módulo de inventario interno para gestionar insumos de lavandería (jabón, suavizante, ganchos, etc.).
+
+# Equipo de Desarrollo
+* Mario Alberto Ojeda Hernandez (Scrum Master / Líder de Proyecto)
+* Edgar Ortega Cabrera (Developer / Product Owner)
+* Santiago Rodriguez Rojo (Developer / Tester)
+* Aldo Gustavo Ayala Mejia (Developer)
+
